@@ -309,42 +309,72 @@ personagem_dead.src = diretorio + "Dead.png";
 
 function animar() {
   // Background;
-  const backgorund = new Image();
-  backgorund.src =
-    "file:///C:/Users/Web%20Front%20End/Documents/GitHub/game_javascript/img/designersAldeia/fundo-capa.png";
+  function fundo() {
+    const backgorund = new Image();
+    backgorund.src =
+      "file:///C:/Users/Web%20Front%20End/Documents/GitHub/game_javascript/img/designersAldeia/placeholder.png";
 
-  ctx.drawImage(
-    backgorund,
-    0,
-    0,
-    backgorundWidth,
-    backgorundHeight,
-    0,
-    0,
-    canvas_width,
-    canvas_height
-  );
+    ctx.clearRect(0, 0, canvas_width, canvas_height);
+    ctx.fillStyle = "red";
+    ctx.drawImage(
+      backgorund,
+      0,
+      0,
+      backgorundWidth,
+      backgorundHeight,
+      0,
+      0,
+      canvas_width,
+      canvas_height
+    );
+  }
 
   // Palyer Parado;
-  const playerIdle = new Image();
-  playerIdle.src = diretorio + "idle.png";
+  function playerIdle(corte) {
+    const playerIdle = new Image();
+    playerIdle.src = diretorio + "idle.png";
 
-  const playerIdle_width = 200;
-  const playerIdle_heigth = 200;
+    const playerIdle_width = 1600;
+    const playerIdle_heigth = 200;
 
-  ctx.drawImage(
-    playerIdle,
-    80,
-    70,
-    playerIdle_width,
-    playerIdle_heigth,
-    40,
-    445,
-    canvas_width,
-    canvas_height
-  );
+    const larguraSprite = playerIdle.width / NumeroDeSprites;
+    const alturaSprite = playerIdle.height / NumeroDeSprites;
+    const positionX = playerIdle_width * 0;
+    const oneSprite = playerIdle_width / 8;
+    const NumeroDeSprites = 8;
 
-  animacao(playerIdle);
+    ctx.drawImage(
+      playerIdle,
+      40,
+      0,
+      playerIdle_width,
+      playerIdle_heigth,
+      0,
+      0,
+      canvas_width,
+      canvas_height
+    );
+
+    let animando = setInterval(() => {
+      oneSprite++;
+      if (oneSprite > 8) oneSprite = 0;
+      positionX = playerIdle * oneSprite;
+      ctx.drawImage(
+        playerIdle,
+        40,
+        0,
+        playerIdle_width,
+        playerIdle_heigth,
+        0,
+        0,
+        canvas_width,
+        canvas_height
+      );
+    });
+  }
+
+  fundo();
+  playerIdle();
 
   if (keydown["ArrowRight"]) {
     x = x + 10;
