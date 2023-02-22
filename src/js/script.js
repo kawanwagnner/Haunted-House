@@ -32,3 +32,23 @@ btn.addEventListener("click", () => {
   linksNavBar[3].addEventListener("click", (e) => removeMenu());
   linksNavBar[4].addEventListener("click", (e) => removeMenu());
 });
+
+/* Opção Pág. Norturna; */
+
+let logoGhost = document.querySelector("#logo");
+const night = document.querySelector("#night");
+
+night.addEventListener("click", () => {
+  document.body.classList.toggle("backgroud-black");
+  
+
+  if (document.body.classList == "backgroud-black") {
+    btn.style.color = "#fff"
+    night.innerHTML = "🌖";
+    logoGhost.src = "./img/logo-copy.png";
+  } else {
+    btn.style.color = "#000"
+    night.innerHTML = "🌘";
+    logoGhost.src = "./img/logo.png";
+  }
+});

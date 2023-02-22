@@ -22,7 +22,6 @@ html {
 #list-navbar {
   list-style: none;
   padding: 0;
-  background-color: #f3f3f3;
   margin: 40px;
   text-align: center;
   font-family: "Alfa Slab One", cursive;
@@ -147,10 +146,43 @@ html {
 
 /* Home Page; ----------------------------------------------- */
 
+#sobre-jogo {
+  position: relative;
+}
+
+#night {
+  position: absolute;
+  right: 300px;
+  top: 20px;
+  font-size: 40px;
+  font-style: normal;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.backgroud-black {
+  background-color: #000;
+}
+
 #logo {
   width: 800px;
   margin: 20px auto;
   display: block;
+  border-radius: 30%;
+  cursor: pointer;
+  animation: AnimationLogo 2s infinite ease;
+}
+
+@keyframes AnimationLogo {
+  from {
+    opacity: .5;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 #roteiro {
@@ -207,7 +239,20 @@ html {
   }
 }
 
+@media screen and (max-width: 1080px) {
+  #night {
+    right: 150px;
+  }
+}
+
 @media screen and (max-width: 870px) {
+
+  #night {
+    position: absolute;
+    top: -50px;
+    right: 80px;
+  }
+
   #logo {
     width: 50%;
     margin-top: 100px;
@@ -256,7 +301,7 @@ html {
 }
 
 /* Rodapé ------------------------------------------------------- */
-  
+
 #rodape {
   background-color: #000;
   width: 100%;
